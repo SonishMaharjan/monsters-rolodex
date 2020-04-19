@@ -8,17 +8,20 @@ class App extends Component {
 
     //state is the attribute of Component class
     this.state = {
-      string: "hello sonish cha",
+      monsters: [
+        { name: "Frankestein", id: "mon1" },
+        { name: "Dracula", id: "mon2" },
+        { name: "Zombie", id: "mon3" },
+      ],
     };
   }
 
   render() {
     return (
       <div className="App">
-        <h1>{this.state.string}</h1>
-        <button onClick={() => this.setState({ string: "helo sumuki" })}>
-          Change Text
-        </button>
+        {this.state.monsters.map((monster) => (
+          <h1 key={monster.id}>{monster.name}</h1>
+        ))}
       </div>
     );
   }
